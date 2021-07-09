@@ -14,7 +14,7 @@ Teknik Bilgiler
 -Java ile kodladım.
 
 
-Youtube 
+YOUTUBE VİDEO LİNKİNE AŞAĞIDAN ULAŞABİLİRSİNİZ.
 
 
 
