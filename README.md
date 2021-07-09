@@ -3,16 +3,16 @@ Evcil Hayvan Sahiplenme ilanları yayınlanan mobil uygulama.
 
 
 Uygulama Özellikleri
-- Gmail ile Üye olma
-- Yeni ilanların ve düzenlene ilanların onaya düşmesi, ilan onaylanmadan yayınlanmaması.
-- Anasayfadan sözcük ve şehir ile arama imkanı
-- Direk arama ve whatsapp üzerinden mesaj gönderme
-- İlanlarda 2 adet görsel ve ilan detayları bulunmakta
+- Gmail Sign in 
+- İlanlar için CRUD işlemleri
+- Sözcük ve Şehir ile MYSQL tabloların arama
+- Whatsapp Mesaj gönderme ve Direk Arama
+- İlanlarda 2 adet görsel ve ilan detayları bulunmaktadır.
 
 Teknik Bilgiler
 -Sunucu tarafında node.js / mysql kullandım.
 -Retrofit, Picasso kütüphaneleri kullandım.
--Java ile kodladım.
+
 
 
 
