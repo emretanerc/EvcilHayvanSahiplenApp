@@ -11,6 +11,7 @@ Uygulama Özellikleri
 
 Teknik Bilgiler
 -Sunucu tarafında node.js / mysql kullandım.
+-Retrofit, Picasso kütüphaneleri kullandım.
 -Java ile kodladım.
 
 
