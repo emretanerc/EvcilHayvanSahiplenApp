@@ -16,6 +16,14 @@ Teknik Bilgiler
 
 
 
+
+![](preview1.jpg)
+
+![](preview2.jpg)
+
+![](preview3.jpg)
+
+
 <b>YOUTUBE VİDEO LİNKİNE AŞAĞIDAN ULAŞABİLİRSİNİZ.</b>
 
 
