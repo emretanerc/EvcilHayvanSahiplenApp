@@ -17,7 +17,7 @@ Teknik Bilgiler
 
 
 
-![](preview1.jpg)
+![](preview.jpg)
 
 
 
