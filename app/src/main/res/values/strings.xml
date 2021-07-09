@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Evcil Hayvan Sahiplenme</string>
+    <string name="title_home">Ana Sayfa</string>
+    <string name="title_dashboard">Profil</string>
+    <string name="title_notifications">İlanlarım</string>
+
+
+
+        <!--to toggle the open close button
+            of the navigation drawer-->
+        <string name="nav_open">Open</string>
+        <string name="nav_close">Close</string>
+
+    <string name="server_client_id">23887130355-0q945akreai72vvbjc9h4tv3bi7utrs1.apps.googleusercontent.com</string>
+
+
+</resources>

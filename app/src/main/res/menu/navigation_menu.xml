@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+
+
+    <item
+        android:icon="?attr/actionModePasteDrawable"
+        android:title="KATEGORİLER" />
+    <item
+        android:id="@+id/nav_kopek"
+        android:title="Köpek" />
+
+    <item
+        android:id="@+id/nav_kedi"
+        android:title="Kedi" />
+
+    <item
+        android:id="@+id/nav_kus"
+        android:title="Kuş" />
+
+
+
+    <item
+        android:id="@+id/nav_balik"
+        android:title="Balık" />
+
+    <item
+        android:id="@+id/nav_tavsan"
+        android:title="Tavşan" />
+
+    <item
+        android:id="@+id/nav_hamster"
+        android:title="Hamster" />
+    <item
+        android:id="@+id/nav_tavuk"
+        android:title="Tavuk" />
+    <item
+        android:id="@+id/nav_horoz"
+        android:title="Horoz" />
+
+    <item
+        android:id="@+id/nav_kaz"
+        android:title="Kaz" />
+
+    <item
+        android:id="@+id/nav_ordek"
+        android:title="Ördek" />
+
+    <item
+        android:id="@+id/nav_surungenler"
+        android:title="Sürüngenler" />
+
+
+
+
+</menu>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Evcil_Hayvan_Sahiplenme.iml" filepath="$PROJECT_DIR$/.idea/modules/Evcil_Hayvan_Sahiplenme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Evcil_Hayvan_Sahiplenme.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Evcil_Hayvan_Sahiplenme.app.iml" />
+    </modules>
+  </component>
+</project>

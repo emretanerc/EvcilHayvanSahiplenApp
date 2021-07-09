@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "977582409219",
+    "project_id": "petbull-1adbd",
+    "storage_bucket": "petbull-1adbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977582409219:android:15027103eac71bf5193036",
+        "android_client_info": {
+          "package_name": "com.etcmobileapps.ucretsizevcilhayvansahiplenme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "977582409219-f4tl7d7h2gv13hq2f9arsmta92sat4d7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.etcmobileapps.ucretsizevcilhayvansahiplenme",
+            "certificate_hash": "3ab27316822f782fa70474264057be754d7b1c89"
+          }
+        },
+        {
+          "client_id": "977582409219-66k373rp0597oftrhqrga0o134nj924k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWuskRBxUBEKwpUOxJc48i4bZClj6qapY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "977582409219-66k373rp0597oftrhqrga0o134nj924k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

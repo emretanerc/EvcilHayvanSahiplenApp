@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
+
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_border"
+        android:clickable="false"
+        android:editable="false"
+        android:ems="10"
+        android:hint="İlan Başlığı giriniz."
+        android:paddingStart="5sp"
+        android:paddingLeft="3dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textColorHint="#7A000000" />
+
+    <EditText
+        android:id="@+id/usermail"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_border"
+        android:clickable="false"
+        android:editable="false"
+        android:ems="10"
+        android:hint="İlan Başlığı giriniz."
+        android:paddingStart="5sp"
+        android:paddingLeft="3dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textColorHint="#7A000000" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logOutButton"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="35dp"
+        android:background="@drawable/bg_border"
+        android:text="Çıkış Yap"
+        android:textColor="@color/mor" />
+
+
+</LinearLayout>

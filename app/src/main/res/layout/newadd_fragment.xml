@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <Spinner
+                android:id="@+id/spinnerCity"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_border"
+                android:gravity="start|left"
+                android:textColor="#000000" />
+
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_border"
+                android:gravity="start|left"
+                android:textColor="#000000" />
+
+            <Spinner
+                android:id="@+id/spinnerGender"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="left"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_border"
+                android:gravity="start"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/ad_altcategory"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_border"
+                android:ems="10"
+                android:hint="Cins yazınız."
+                android:inputType="text"
+                android:paddingStart="5sp"
+                android:paddingLeft="3dp"
+                android:text=""
+                android:textColor="#000000"
+                android:textColorHint="#7A000000" />
+
+            <EditText
+                android:id="@+id/ad_age"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_border"
+                android:ems="10"
+                android:hint="Yaş yazınız."
+                android:inputType="text"
+                android:paddingStart="5sp"
+                android:text=""
+                android:textColor="#000000"
+                android:textColorHint="#7A000000" />
+
+            <EditText
+                android:id="@+id/ad_title"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_border"
+                android:ems="10"
+                android:hint="İlan Başlığı giriniz."
+                android:inputType="text"
+                android:paddingStart="5sp"
+                android:paddingLeft="3dp"
+                android:text=""
+                android:textColor="#000000"
+                android:textColorHint="#7A000000" />
+
+            <EditText
+                android:id="@+id/ad_detail"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_border"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="İlan Açıklaması giriniz."
+
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="8sp"
+                android:nestedScrollingEnabled="false"
+                android:paddingStart="5sp"
+                android:paddingLeft="3dp"
+                android:singleLine="false"
+                android:textColor="#000000"
+                android:textColorHint="#7A000000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:layout_weight="0.25"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_border"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/photo1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:layout_weight="0.20"
+                        android:background="#00FFFEFE"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/upload" />
+
+                    <TextView
+                        android:id="@+id/closePhoto1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.10"
+                        android:text="X"
+                        android:textAlignment="center"
+                        android:textColor="#FF0303"
+                        android:textSize="30sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_border"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/photo2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:layout_weight="0.20"
+                        android:background="#00FFFEFE"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/upload" />
+
+                    <TextView
+                        android:id="@+id/closePhoto2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.10"
+                        android:text="X"
+                        android:textAlignment="center"
+                        android:textColor="#FF0303"
+                        android:textSize="30sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/telephone"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_border"
+                android:ems="10"
+                android:hint="Telefon Numarası giriniz. (Whatsapp için)"
+                android:inputType="text"
+                android:paddingStart="5sp"
+                android:paddingLeft="3dp"
+                android:text=""
+                android:textColor="#000000"
+                android:textColorHint="#7A000000"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/pushButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/mor"
+                android:text="İLANI İNCELEMEK ÜZERE GÖNDER"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+

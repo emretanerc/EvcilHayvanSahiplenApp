@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="horizontal">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@drawable/bgs"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <EditText
+                        android:id="@+id/searchTv"
+                        android:layout_width="60dp"
+                        android:layout_height="75dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="#FFFEFE"
+                        android:gravity="center"
+
+                        android:focusableInTouchMode="true"
+                        android:hint="Arama..."
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        android:windowSoftInputMode="stateHidden|adjustResize" />
+
+                    <Spinner
+                        android:id="@+id/spinner1"
+                        android:layout_width="100dp"
+                        android:layout_height="75dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFFEFE"
+                        android:gravity="center" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buttonSearch"
+                        android:layout_width="50dp"
+                        android:layout_height="75dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/mor"
+                        android:gravity="center"
+                        android:text="Ara"
+                        android:textColor="#FAF6F6" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="5.9"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3.2"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Son İlanlar"
+                        android:textAlignment="viewStart"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/showLastAdsBt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:background="#673AB7"
+                        android:text="Tümünü göster"
+                        android:textColor="#FAF6F6"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="3"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollbars="none"
+                    android:visibility="visible">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:id="@+id/ly1"
+                            android:layout_width="900dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+
+                            <GridView
+                                android:id="@+id/adsView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:columnWidth="150dp"
+                                android:columnCount="5"
+                                android:fadingEdge="vertical"
+                                android:horizontalSpacing="4dp"
+                                android:numColumns="9"
+                                android:rowCount="9"
+                                android:scrollbarAlwaysDrawHorizontalTrack="true"
+                                android:scrollbarAlwaysDrawVerticalTrack="false"
+                                android:scrollbars="horizontal"
+                                android:stretchMode="columnWidth">
+
+                            </GridView>
+                        </LinearLayout>
+                    </FrameLayout>
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="5.9"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView54"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3.2"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Köpekler"
+                        android:textAlignment="viewStart"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/showDogAdsBt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:background="#673AB7"
+                        android:text="Tümünü göster"
+                        android:textColor="#FAF6F6"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="3"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollbars="none"
+                    android:visibility="visible">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:id="@+id/ly2"
+                            android:layout_width="900dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+
+                            <GridView
+                                android:id="@+id/adsView2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:columnWidth="175dp"
+                                android:columnCount="5"
+                                android:fadingEdge="vertical"
+                                android:gravity="center"
+                                android:horizontalSpacing="4dp"
+                                android:numColumns="9"
+                                android:rowCount="9"
+                                android:scrollbarAlwaysDrawHorizontalTrack="true"
+                                android:scrollbarAlwaysDrawVerticalTrack="false"
+                                android:scrollbars="horizontal"
+                                android:stretchMode="columnWidth">
+
+                            </GridView>
+                        </LinearLayout>
+                    </FrameLayout>
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="5.9"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView354"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3.2"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Kediler"
+                        android:textAlignment="viewStart"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/showCatsAdsBt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:background="#673AB7"
+                        android:text="Tümünü göster"
+                        android:textColor="#FAF6F6"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="3"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollbars="none"
+                    android:visibility="visible">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:id="@+id/ly3"
+                            android:layout_width="900dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+
+                            <GridView
+                                android:id="@+id/adsView3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:columnWidth="175dp"
+                                android:columnCount="5"
+                                android:fadingEdge="vertical"
+                                android:gravity="center"
+                                android:horizontalSpacing="4dp"
+                                android:numColumns="9"
+                                android:rowCount="9"
+                                android:scrollbarAlwaysDrawHorizontalTrack="true"
+                                android:scrollbarAlwaysDrawVerticalTrack="false"
+                                android:scrollbars="horizontal"
+                                android:stretchMode="columnWidth">
+
+                            </GridView>
+                        </LinearLayout>
+                    </FrameLayout>
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:id="@+id/a"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:layout_weight="5.9"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView545"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3.2"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Diğer"
+                            android:textAlignment="viewStart"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/showOthersAdsBt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7"
+                            android:background="#673AB7"
+                            android:text="Tümünü göster"
+                            android:textColor="#FAF6F6"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="3"
+                        android:scrollbarStyle="outsideOverlay"
+                        android:scrollbars="none"
+                        android:visibility="visible">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:visibility="visible">
+
+                            <LinearLayout
+                                android:id="@+id/ly4"
+                                android:layout_width="900dp"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:visibility="visible">
+
+
+                                <GridView
+                                    android:id="@+id/adsView4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="4dp"
+                                    android:columnWidth="175dp"
+                                    android:columnCount="5"
+                                    android:fadingEdge="vertical"
+                                    android:gravity="center"
+                                    android:horizontalSpacing="4dp"
+                                    android:numColumns="9"
+                                    android:rowCount="9"
+                                    android:scrollbarAlwaysDrawHorizontalTrack="true"
+                                    android:scrollbarAlwaysDrawVerticalTrack="false"
+                                    android:scrollbars="horizontal"
+                                    android:stretchMode="columnWidth">
+
+                                </GridView>
+                            </LinearLayout>
+                        </FrameLayout>
+                    </HorizontalScrollView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
