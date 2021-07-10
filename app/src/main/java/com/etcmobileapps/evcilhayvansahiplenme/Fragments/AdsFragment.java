@@ -27,6 +27,7 @@ import com.etcmobileapps.evcilhayvansahiplenme.Api.ApiClient;
 
 import com.etcmobileapps.evcilhayvansahiplenme.Api.Interface;
 import com.etcmobileapps.evcilhayvansahiplenme.Controller.AdsAdaptor;
+import com.etcmobileapps.evcilhayvansahiplenme.Controller.ProfileAdsAdaptor;
 import com.etcmobileapps.evcilhayvansahiplenme.MainActivity;
 import com.etcmobileapps.evcilhayvansahiplenme.Model.AdsModel;
 import com.etcmobileapps.evcilhayvansahiplenme.Model.UserModel;
@@ -273,9 +274,15 @@ public class AdsFragment extends Fragment {
         @Override
         public void onResponse(Call<List<AdsModel>> call, Response<List<AdsModel>> response) {
             lastList=response.body();
-            adapter=new AdsAdaptor(getContext(),R.layout.lastads_row,lastList);
-            Log.i("Bilgi",response.toString());
-            lastAds.setAdapter(adapter);
+
+
+            if (getActivity()!=null){
+                adapter=new AdsAdaptor(getContext(),R.layout.lastads_row,lastList);
+                Log.i("Bilgi",response.toString());
+                lastAds.setAdapter(adapter);
+            }
+
+
         }
 
         @Override

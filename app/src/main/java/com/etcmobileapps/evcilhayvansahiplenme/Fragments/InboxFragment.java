@@ -110,10 +110,16 @@ public class InboxFragment extends Fragment {
             @Override
             public void onResponse(Call<List<AdsModel>> call, Response<List<AdsModel>> response) {
                 myList=response.body();
-                adapter=new ProfileAdsAdaptor(getContext(),R.layout.profileads_row,myList,getActivity());
-                Log.i("Bilgi",response.toString());
-                myAdsListView.setAdapter(adapter);
 
+
+                if (getActivity()!=null){
+                    adapter=new ProfileAdsAdaptor(getContext(),R.layout.profileads_row,myList,getActivity());
+                    Log.i("Bilgi",response.toString());
+                    myAdsListView.setAdapter(adapter);
+                }
+
+
+              
                if (myList.toString().equals("[]")) {
 
 

@@ -31,8 +31,6 @@ public class AdsAdaptor extends ArrayAdapter<AdsModel> {
 
     public AdsAdaptor(@NonNull Context context, int resource, @NonNull List<AdsModel> listData) {
         super(context, resource, listData);
-
-
         this.context=context;
         this.resource=resource;
         this.listData=listData;
