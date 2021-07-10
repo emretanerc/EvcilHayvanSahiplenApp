@@ -302,9 +302,10 @@ public class AdsFragment extends Fragment {
             @Override
             public void onResponse(Call<List<AdsModel>> call, Response<List<AdsModel>> response) {
                 dogsList=response.body();
+                if (getActivity()!=null){
                 adapter=new AdsAdaptor(getContext(),R.layout.lastads_row,dogsList);
                 Log.i("Bilgi",response.toString());
-                dogAds.setAdapter(adapter);
+                dogAds.setAdapter(adapter); }
             }
 
             @Override
@@ -346,9 +347,10 @@ public class AdsFragment extends Fragment {
             @Override
             public void onResponse(Call<List<AdsModel>> call, Response<List<AdsModel>> response) {
                 catsList=response.body();
+                if (getActivity()!=null){
                 adapter=new AdsAdaptor(getContext(),R.layout.lastads_row,catsList);
                 Log.i("Bilgi",response.toString());
-                birdAds.setAdapter(adapter);
+                birdAds.setAdapter(adapter);}
             }
 
             @Override
@@ -369,10 +371,12 @@ public class AdsFragment extends Fragment {
             @Override
             public void onResponse(Call<List<AdsModel>> call, Response<List<AdsModel>> response) {
                 lastothers=response.body();
+
+                if (getActivity()!=null){
                 adapter=new AdsAdaptor(getContext(),R.layout.lastads_row,lastothers);
                 Log.i("Bilgi",response.toString());
                 otherAds.setAdapter(adapter);
-            }
+            } }
 
             @Override
             public void onFailure(Call<List<AdsModel>> call, Throwable t) {

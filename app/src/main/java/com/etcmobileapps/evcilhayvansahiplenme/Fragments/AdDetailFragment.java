@@ -3,8 +3,13 @@ package com.etcmobileapps.evcilhayvansahiplenme.Fragments;
 
 
 import android.Manifest;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,8 +17,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,6 +69,7 @@ public class AdDetailFragment extends Fragment {
     String  userId;
     AdsModel repo;
     CircleImageView profileImage;
+    Dialog dialog;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -185,6 +195,22 @@ public class AdDetailFragment extends Fragment {
             }
         });
 
+
+        adimagex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showDialog(repo.getAdImage());
+            }
+        });
+
+        adimagex2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showDialog(repo.getAdImage2());
+            }
+        });
 
         allAdsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -343,5 +369,42 @@ public class AdDetailFragment extends Fragment {
         }else{
             Toast.makeText(getActivity(), "You don't assign permission.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+
+    private void showDialog(String url) {
+        // custom dialog
+        dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.custom_dialog);
+
+        // set the custom dialog components - text, image and button
+        ImageButton close = (ImageButton) dialog.findViewById(R.id.btnClose);
+        Button buy = (Button) dialog.findViewById(R.id.btnBuy);
+        ImageView photo = (ImageView) dialog.findViewById(R.id.photo);
+
+
+       Picasso.get().load(url).fit().into(photo);
+        // Close Button
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                //TODO Close button action
+            }
+        });
+
+        // Buy Button
+        buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                //TODO Buy button action
+            }
+        });
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        dialog.show();
     }
 }

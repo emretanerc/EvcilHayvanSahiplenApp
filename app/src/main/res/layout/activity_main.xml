@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/mor"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/textView"
@@ -68,15 +69,16 @@
                     android:id="@+id/newAddCursor"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
 
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:background="#00FFFFFF"
                     android:gravity="center"
                     android:src="@android:drawable/ic_input_add"
                     android:text="+"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
-                    android:textSize="55sp"
+                    android:textSize="45sp"
                     app:borderWidth="0dp"
                     app:fabSize="auto" />
 
