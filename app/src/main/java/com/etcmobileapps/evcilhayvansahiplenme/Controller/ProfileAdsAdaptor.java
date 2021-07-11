@@ -24,14 +24,10 @@ import androidx.fragment.app.FragmentManager;
 
 import com.etcmobileapps.evcilhayvansahiplenme.Api.ApiClient;
 import com.etcmobileapps.evcilhayvansahiplenme.Api.Interface;
-import com.etcmobileapps.evcilhayvansahiplenme.Fragments.AdDetailFragment;
 import com.etcmobileapps.evcilhayvansahiplenme.Fragments.EditYourAdsFragment;
-import com.etcmobileapps.evcilhayvansahiplenme.Fragments.InboxFragment;
 import com.etcmobileapps.evcilhayvansahiplenme.Model.AdsModel;
 import com.etcmobileapps.evcilhayvansahiplenme.Model.SearchModel;
 import com.etcmobileapps.ucretsizevcilhayvansahiplenme.R;
-import com.squareup.picasso.MemoryPolicy;
-import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 
@@ -41,11 +37,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static android.graphics.Color.BLACK;
-import static android.graphics.Color.GREEN;
 import static android.graphics.Color.RED;
 import static android.graphics.Color.WHITE;
-import static android.graphics.Color.YELLOW;
 
 public class ProfileAdsAdaptor extends ArrayAdapter<AdsModel> {
     List<AdsModel> listData;
@@ -88,6 +81,7 @@ public class ProfileAdsAdaptor extends ArrayAdapter<AdsModel> {
         TextView txtName = convertView.findViewById(R.id.ad_Name);
         Button changeBt = convertView.findViewById(R.id.changeBt);
         Button deleteBt = convertView.findViewById(R.id.deleteBt);
+        TextView adViewValue = convertView.findViewById(R.id.ad_ViewValue);
 
         Integer confirmation = listdata.getConfirmation();
         if (confirmation==1) {
@@ -109,6 +103,9 @@ public class ProfileAdsAdaptor extends ArrayAdapter<AdsModel> {
             txtStatus.setTextColor(WHITE);
             txtStatus.setText("REDDEDİLDİ");
         }
+
+
+        adViewValue.setText("Görüntülenme: " + String.valueOf(listdata.getAdViews()));
 
         txtName.setText(listdata.getAdName());
         adDetail2.setText("\n" + listdata.getAdDetail());

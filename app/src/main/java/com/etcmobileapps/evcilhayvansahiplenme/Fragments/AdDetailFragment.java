@@ -176,6 +176,8 @@ public class AdDetailFragment extends Fragment {
         });
     }
 
+
+
     public void setClick() {
 
         wpButton.setOnClickListener(new View.OnClickListener() {
@@ -255,6 +257,30 @@ public class AdDetailFragment extends Fragment {
                 .commit();
     }
 
+    public void setViewStatic(Integer  id, Integer view) {
+
+        final Interface[] restInterface = new Interface[1];
+        restInterface[0] = ApiClient.getClient().create(Interface.class);
+        Call<AdsModel> call = restInterface[0].view(id);
+        call.enqueue(new Callback<AdsModel>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onResponse(Call<AdsModel> call, Response<AdsModel> response) {
+
+                repo= response.body();
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<AdsModel> call, Throwable t) {
+                Log.e("Hata",t.toString());
+            }
+        });
+
+    }
+
     public void lastAds(Integer id) {
 
         final Interface[] restInterface = new Interface[1];
@@ -307,6 +333,7 @@ public class AdDetailFragment extends Fragment {
 
                 adDetail.setText("\n" + repo.getAdDetail() + "\n");
 
+                setViewStatic(repo.getId(),repo.getAdViews()+1);
 
                 ageValue.setText(repo.getAdAge());
                 sexValue.setText(repo.getAdSex());

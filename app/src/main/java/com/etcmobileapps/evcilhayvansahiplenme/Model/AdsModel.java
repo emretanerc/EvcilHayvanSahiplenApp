@@ -43,7 +43,7 @@ public class AdsModel {
     private String country;
     @SerializedName("reason")
     @Expose
-    private String reason;
+    private Object reason;
     @SerializedName("ad_image")
     @Expose
     private String adImage;
@@ -59,6 +59,9 @@ public class AdsModel {
     @SerializedName("ad_sex")
     @Expose
     private String adSex;
+    @SerializedName("ad_view")
+    @Expose
+    private Integer adViews;
 
     public Integer getId() {
         return id;
@@ -156,11 +159,11 @@ public class AdsModel {
         this.country = country;
     }
 
-    public String getReason() {
+    public Object getReason() {
         return reason;
     }
 
-    public void setReason(String reason) {
+    public void setReason(Object reason) {
         this.reason = reason;
     }
 
@@ -204,4 +207,11 @@ public class AdsModel {
         this.adSex = adSex;
     }
 
+    public Integer getAdViews() {
+        return adViews;
+    }
+
+    public void setAdViews(Integer adViews) {
+        this.adViews = adViews;
+    }
 }

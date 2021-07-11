@@ -530,7 +530,7 @@ public class EditYourAdsFragment extends Fragment {
 
         final Interface[] restInterface = new Interface[1];
         restInterface[0] = ApiClient.getClient().create(Interface.class);
-        Call<AdsModel> call = restInterface[0].editAds(String.valueOf(repo.getId()),repo.getAdOwnerid(),repo.getAdOwnername(),telephoneTv.getText().toString(),"Sahiplendirme",tittle,detail,category,altCategory,age,1,city,"",photo1,photo2,"","03.07.2021",gender);
+        Call<AdsModel> call = restInterface[0].editAds(String.valueOf(repo.getId()),repo.getAdOwnerid(),repo.getAdOwnername(),telephoneTv.getText().toString(),"Sahiplendirme",tittle,detail,category,altCategory,age,1,city,"",photo1,photo2,"","03.07.2021",gender,repo.getAdViews());
         call.enqueue(new Callback<AdsModel>() {
             @Override
             public void onResponse(Call<AdsModel> call, Response<AdsModel> response) {

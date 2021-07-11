@@ -79,7 +79,13 @@ public interface Interface {
                              @Field("ad_image2") String ad_image2,
                              @Field("tags") String tags,
                              @Field("date") String date,
-                             @Field("ad_sex") String ad_sex);
+                             @Field("ad_sex") String ad_sex,
+                             @Field("ad_view") Integer ad_view);
+
+
+
+    @PUT("ads/view/{id}")
+    Call<AdsModel> view  (@Path("id") Integer id);
 
 
 
