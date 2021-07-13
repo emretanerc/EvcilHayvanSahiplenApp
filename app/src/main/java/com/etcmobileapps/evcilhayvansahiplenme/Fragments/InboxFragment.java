@@ -1,5 +1,6 @@
 package com.etcmobileapps.evcilhayvansahiplenme.Fragments;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +29,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 
 import java.util.List;
 
@@ -41,6 +45,9 @@ public class InboxFragment extends Fragment {
     private List<AdsModel> myList;
     ListView myAdsListView;
     private ProfileAdsAdaptor adapter;
+    FirebaseUser user;
+    String providerId,name,email,uid;
+    Uri photoUrl;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,6 +58,9 @@ public class InboxFragment extends Fragment {
 
         myAdsListView = view.findViewById(R.id.myAdsListView);
         setClicks();
+
+         user = FirebaseAuth.getInstance().getCurrentUser();
+
 
         return view;
 
@@ -67,15 +77,20 @@ public class InboxFragment extends Fragment {
     }
 
     public void getAccount() {
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder (GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken (getString (R.string.server_client_id))
-                .requestEmail ()
-                .build ();
+        if (user != null) {
+            for (UserInfo profile : user.getProviderData()) {
+                // Id of the provider (ex: google.com)
+                 providerId = profile.getProviderId();
 
-        mGoogleSignInClient = GoogleSignIn.getClient(getContext(), gso);
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getContext());
+                // UID specific to the provider
+                 uid = profile.getUid();
 
-        userId = account.getId();
+                // Name, email address, and profile photo Url
+                 name = profile.getDisplayName();
+                 email = profile.getEmail();
+                photoUrl = profile.getPhotoUrl();
+            }
+        }
     }
 
 
@@ -105,7 +120,7 @@ public class InboxFragment extends Fragment {
 
         final Interface[] restInterface = new Interface[1];
         restInterface[0] = ApiClient.getClient().create(Interface.class);
-        Call<List<AdsModel>> call = restInterface[0].getOwnAds(userId);
+        Call<List<AdsModel>> call = restInterface[0].getOwnAds(uid);
         call.enqueue(new Callback<List<AdsModel>>() {
             @Override
             public void onResponse(Call<List<AdsModel>> call, Response<List<AdsModel>> response) {
@@ -173,5 +188,7 @@ public class InboxFragment extends Fragment {
         fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragmentLayout, fragment)
                 .commit();
     }
+
+
 
 }

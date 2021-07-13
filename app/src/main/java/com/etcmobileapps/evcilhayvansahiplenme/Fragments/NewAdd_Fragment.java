@@ -260,7 +260,7 @@ public class NewAdd_Fragment extends Fragment {
 
         final Interface[] restInterface = new Interface[1];
         restInterface[0] = ApiClient.getClient().create(Interface.class);
-        Call<AdsModel> call = restInterface[0].addNewAdd(userId,ownerName,telephoneTv.getText().toString(),"Sahiplenme",tittle,detail,category,altCategory,age,null,city,null,photo1,photo2,altCategory,date,gender);
+        Call<AdsModel> call = restInterface[0].addNewAdd(userId,ownerName,telephoneTv.getText().toString(),"Sahiplenme",tittle,detail,category,altCategory,age,null,city,null,photo1,photo2,altCategory,date,gender,1);
         call.enqueue(new Callback<AdsModel>() {
             @Override
             public void onResponse(Call<AdsModel> call, Response<AdsModel> response) {

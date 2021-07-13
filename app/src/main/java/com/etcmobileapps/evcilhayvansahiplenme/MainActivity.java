@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
     BottomNavigationView navigation;
+    LinearLayout loading;
     @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +64,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
 
+        handler.sendEmptyMessageDelayed(1, 2500);
 
-      //  menu.setVisibility(View.GONE);
-      //  action.setVisibility(View.GONE);
         fragmentLayout = findViewById(R.id.fragmentLayout);
         drawerMenuButton = findViewById(R.id.drawerMenuButton);
         newAddButton = findViewById(R.id.newAddCursor);
@@ -150,6 +151,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return true;
         }
     };
+
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what == 1) {
+                loading = findViewById(R.id.loading);
+                loading.setVisibility(View.GONE);
+            }
+        }
+
+    };
+
 
     public void replaceFragments(Class fragmentClass) {
         Fragment fragment = null;

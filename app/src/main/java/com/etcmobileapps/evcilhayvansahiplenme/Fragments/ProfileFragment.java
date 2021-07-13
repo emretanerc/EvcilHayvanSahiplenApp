@@ -1,6 +1,8 @@
 package com.etcmobileapps.evcilhayvansahiplenme.Fragments;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,9 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -45,6 +50,12 @@ public class ProfileFragment extends Fragment {
     private List<UserModel> specList;
     TextView username,userid,usermail;
     UserModel repo;
+    private List<UserModel> userList;
+    String providerId,name,email,uid;
+    Uri photoUrl;
+    FirebaseUser user;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,7 +75,7 @@ public class ProfileFragment extends Fragment {
 
         mGoogleSignInClient = GoogleSignIn.getClient(getContext(),gso);
 
-
+        getAccount();
         getProfileSpecs();
 
 
@@ -95,27 +106,48 @@ public class ProfileFragment extends Fragment {
     }
 
 
+    public void getAccount() {
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            for (UserInfo profile : user.getProviderData()) {
+                // Id of the provider (ex: google.com)
+                providerId = profile.getProviderId();
+
+                // UID specific to the provider
+                uid = profile.getUid();
+
+                // Name, email address, and profile photo Url
+                name = profile.getDisplayName();
+                email = profile.getEmail();
+                photoUrl = profile.getPhotoUrl();
+
+                Log.i("Bilgi",uid.toString());
+            }
+        }
+    }
 
     public void getProfileSpecs() {
 
             final Interface[] restInterface = new Interface[1];
             restInterface[0] = ApiClient.getClient().create(Interface.class);
-            Call<List<UserModel>> call = restInterface[0].getUserSpecs(account.getId());
+            Call<List<UserModel>>call = restInterface[0].getUserSpecs(uid);
             call.enqueue(new Callback<List<UserModel>>() {
                 @Override
                 public void onResponse(Call<List<UserModel>> call, Response<List<UserModel>> response) {
 
-                   specList = response.body();
+                  userList = response.body();
 
 
-                    Picasso.get().load(specList.get(0).getUserPhoto()).fit().into(profile_image);
+                    Picasso.get().load(photoUrl).fit().into(profile_image);
 
                     profile_image.setBorderColor(660099);
 
 
 
-                    username.setText(specList.get(0).getUserName().toString());
-                    usermail.setText(specList.get(0).getUserEmail().toString());
+                    username.setText(name);
+                    usermail.setText(email);
 
 
 

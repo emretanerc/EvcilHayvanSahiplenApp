@@ -1,6 +1,7 @@
 package com.etcmobileapps.evcilhayvansahiplenme.Fragments;
 
 import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -37,6 +38,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -54,6 +58,7 @@ public class AdsFragment extends Fragment {
     LinearLayout loading;
     Button searchBt,showDogAdsBt,showCatAdsBt,showOtherAdsBt,showLastAdsBt,wpButton,allAdsButton;
     EditText searchTv;
+    private List<UserModel> userControl;
     GoogleSignInAccount account;
     LinearLayout ly1,ly2,ly3,ly4;
     private String[] iller={"Hepsi","Adana", "Adıyaman", "Afyon", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin",
@@ -98,7 +103,7 @@ public class AdsFragment extends Fragment {
         lastCatAds();
         lastOtherAds();
 
-        loading.setVisibility(View.GONE);
+     //   loading.setVisibility(View.GONE);
 
 
     }
@@ -476,38 +481,8 @@ public class AdsFragment extends Fragment {
             }
         });
 
-/*        spinnerIlceler.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-                //Seçilen il ve ilçeyi ekranda gösteriyoruz.
-            //    sehirAdi = spinnerIller.getSelectedItem().toString();
-              //  ilceAdi = parent.getSelectedItem().toString();
-
-                //eczaneVericek(sehirAdi,ilceAdi);
-                //Toast.makeText(getActivity(), sehirAdi + ilceAdi, Toast.LENGTH_SHORT).show();
-            }
-
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        }); */
-
     }
 
 
-
-    public void setWidth(LinearLayout layout,Integer width) {
-
-
-// Gets the layout params that will allow you to resize the layout
-        ViewGroup.LayoutParams params = layout.getLayoutParams();
-// Changes the height and width to the specified *pixels*
-
-        params.width = width;
-        layout.setLayoutParams(params);
-
-
-    }
 
 }

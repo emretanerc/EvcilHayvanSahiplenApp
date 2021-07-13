@@ -45,6 +45,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -113,6 +116,9 @@ public class EditYourAdsFragment extends Fragment {
     String iconPathFirebase=null;
     AdsModel repo;
     View view;
+    String providerId,name,email,uid;
+    Uri photoUrl;
+    FirebaseUser user;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -126,7 +132,7 @@ public class EditYourAdsFragment extends Fragment {
         setView();
         setOnClick();
         setCity();
-
+        getAccount();
 
 
 
@@ -414,16 +420,11 @@ public class EditYourAdsFragment extends Fragment {
         image2=view.findViewById(R.id.photo2);
 
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder (GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken (getString (R.string.server_client_id))
-                .requestEmail ()
-                .build ();
 
-        mGoogleSignInClient = GoogleSignIn.getClient(getContext(), gso);
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getContext());
 
-        userId = account.getId().toString();
-        userName = account.getDisplayName();
+
+
+
 
         closePhoto1.setVisibility(View.INVISIBLE);
         closePhoto2.setVisibility(View.INVISIBLE);
@@ -434,6 +435,30 @@ public class EditYourAdsFragment extends Fragment {
     }
 
 
+    public void getAccount() {
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            for (UserInfo profile : user.getProviderData()) {
+                // Id of the provider (ex: google.com)
+                providerId = profile.getProviderId();
+
+                // UID specific to the provider
+                uid = profile.getUid();
+
+                // Name, email address, and profile photo Url
+                name = profile.getDisplayName();
+                email = profile.getEmail();
+                photoUrl = profile.getPhotoUrl();
+
+
+                userId = profile.getUid();
+                userName = profile.getDisplayName();
+                Log.i("Bilgi",uid.toString());
+            }
+        }
+    }
 
 
     private void SelectImage()

@@ -42,6 +42,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 import com.squareup.picasso.Picasso;
 
 import java.time.LocalDate;
@@ -65,11 +68,19 @@ public class AdDetailFragment extends Fragment {
     LinearLayout callButton;
     View view;
     String ownerId;
+    String photo1url,photo2url;
     GoogleSignInClient mGoogleSignInClient;
     String  userId;
     AdsModel repo;
     CircleImageView profileImage;
     Dialog dialog;
+    private List<UserModel> userRepo;
+    String providerId,name,email,uid;
+    Uri photoUrl;
+    FirebaseUser user;
+    String  telephone;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -93,18 +104,34 @@ public class AdDetailFragment extends Fragment {
 
     public  void getAccountDetails () {
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder (GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken (getString (R.string.server_client_id))
-                .requestEmail ()
-                .build ();
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
-        mGoogleSignInClient = GoogleSignIn.getClient(getContext(), gso);
-        account = GoogleSignIn.getLastSignedInAccount(getContext());
+        if (user != null) {
+            for (UserInfo profile : user.getProviderData()) {
+                // Id of the provider (ex: google.com)
+                providerId = profile.getProviderId();
 
-        userId = account.getId();
+                // UID specific to the provider
+                uid = profile.getUid();
+
+                // Name, email address, and profile photo Url
+                name = profile.getDisplayName();
+                email = profile.getEmail();
+                photoUrl = profile.getPhotoUrl();
+
+
+                userId = profile.getUid();
+
+                Log.i("Bilgi",uid.toString());
+            }
+        }
 
 
     }
+
+
+
+
 
 
     public void setView()
@@ -120,7 +147,7 @@ public class AdDetailFragment extends Fragment {
         CategoryValue = view.findViewById(R.id.adcategoryvalue);
         cinsValue = view.findViewById(R.id.cinsValue);
         allAdsButton = view.findViewById(R.id.allAdsBt);
-        wpButton =view.findViewById(R.id.callButton);
+        wpButton =view.findViewById(R.id.wpButton);
         buttonTelephone= view.findViewById(R.id.buttonTelephone);
         adimagex2 = view.findViewById(R.id.adimagex2);
         profileImage = view.findViewById(R.id.profileImage);
@@ -147,17 +174,17 @@ public class AdDetailFragment extends Fragment {
             public void onResponse(Call<List<UserModel>> call, Response<List<UserModel>> response) {
 
 
-                specList = response.body();
+                userRepo = response.body();
 
 
-                if (specList.get(0).getUserPhoto()==null) {
+                if (userRepo.get(0).getUserPhoto()==null) {
 
 
                     Picasso.get().load(R.drawable.nopic).fit().into(profileImage);
 
                 } else {
 
-                    Picasso.get().load(specList.get(0).getUserPhoto()).fit().into(profileImage);
+                    Picasso.get().load(userRepo.get(0).getUserPhoto()).fit().into(profileImage);
 
                 }
 
@@ -188,7 +215,7 @@ public class AdDetailFragment extends Fragment {
                 Intent sendIntent = new Intent("android.intent.action.MAIN");
                 sendIntent.setAction(Intent.ACTION_VIEW);
                 sendIntent.setPackage("com.whatsapp");
-                String url = "https://api.whatsapp.com/send?phone=" + repo.getAdOwnertelephone();
+                String url = "https://api.whatsapp.com/send?phone=9" + telephone;
                 sendIntent.setData(Uri.parse(url));
                 if(sendIntent.resolveActivity(getContext().getPackageManager()) != null){
                     startActivity(sendIntent);
@@ -202,7 +229,7 @@ public class AdDetailFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                showDialog(repo.getAdImage());
+                showDialog("1");
             }
         });
 
@@ -210,7 +237,7 @@ public class AdDetailFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                showDialog(repo.getAdImage2());
+                showDialog("2");
             }
         });
 
@@ -219,7 +246,7 @@ public class AdDetailFragment extends Fragment {
             public void onClick(View v) {
 
 
-                replaceFragmentsSearch(repo.getAdOwnerid(),SearchFragment.class);
+                replaceFragmentsSearch(ownerId,SearchFragment.class);
 
             }
         });
@@ -307,6 +334,7 @@ public class AdDetailFragment extends Fragment {
                         = LocalDate.now();
             dateValue.setText(lt.toString());
 
+            telephone = repo.getAdOwnertelephone();
 
                 Picasso
                         .get()
@@ -314,6 +342,7 @@ public class AdDetailFragment extends Fragment {
                         .fit()
                         .into(adimagex);
 
+                photo1url =repo.getAdImage();
 
                if (repo.getAdImage2()==null) {
 
@@ -326,9 +355,11 @@ public class AdDetailFragment extends Fragment {
                            .load(repo.getAdImage2())
                            .fit()
                            .into(adimagex2);
+                   photo2url =repo.getAdImage2();
 
 
                }
+
 
 
                 adDetail.setText("\n" + repo.getAdDetail() + "\n");
@@ -377,11 +408,12 @@ public class AdDetailFragment extends Fragment {
         switch(requestCode){
             case 9:
                 permissionGranted = grantResults[0]== PackageManager.PERMISSION_GRANTED;
+                phoneCall();
                 break;
         }
         if(permissionGranted){
             phoneCall();
-            phoneCall();
+
         }else {
             Toast.makeText(getActivity(), "You don't assign permission.", Toast.LENGTH_SHORT).show();
         }
@@ -391,7 +423,7 @@ public class AdDetailFragment extends Fragment {
         if (ActivityCompat.checkSelfPermission(getActivity(),
                 Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
             Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:" + repo.getAdOwnertelephone()));
+            callIntent.setData(Uri.parse("tel:" + telephone));
             getActivity().startActivity(callIntent);
         }else{
             Toast.makeText(getActivity(), "You don't assign permission.", Toast.LENGTH_SHORT).show();
@@ -410,8 +442,16 @@ public class AdDetailFragment extends Fragment {
         Button buy = (Button) dialog.findViewById(R.id.btnBuy);
         ImageView photo = (ImageView) dialog.findViewById(R.id.photo);
 
+       if (url.equals("1")) {
+       Picasso.get().load(photo1url).fit().into(photo); }
 
-       Picasso.get().load(url).fit().into(photo);
+       else {
+           Picasso.get().load(photo2url).fit().into(photo);
+
+
+       }
+
+
         // Close Button
         close.setOnClickListener(new View.OnClickListener() {
             @Override
