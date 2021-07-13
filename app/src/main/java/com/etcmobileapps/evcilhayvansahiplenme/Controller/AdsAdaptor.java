@@ -64,7 +64,8 @@ public class AdsAdaptor extends ArrayAdapter<AdsModel> {
            Picasso
                     .get()
                     .load(listdata.getAdImage())
-                   .fit()
+                    .resize(400,400)
+                    .centerCrop()
                     .into(img);
 
 

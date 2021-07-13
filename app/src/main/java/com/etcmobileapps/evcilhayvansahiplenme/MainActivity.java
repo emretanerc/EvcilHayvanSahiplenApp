@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
 
-        handler.sendEmptyMessageDelayed(1, 2500);
+        handler.sendEmptyMessageDelayed(1, 3000);
 
         fragmentLayout = findViewById(R.id.fragmentLayout);
         drawerMenuButton = findViewById(R.id.drawerMenuButton);
