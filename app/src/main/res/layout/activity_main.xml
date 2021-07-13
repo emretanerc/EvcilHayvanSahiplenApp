@@ -59,7 +59,7 @@
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.80"
+                    android:layout_weight="0.95"
                     android:gravity="center"
                     android:text="Pati"
                     android:textAlignment="viewEnd"
@@ -83,8 +83,8 @@
                     android:id="@+id/newAddCursor"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
 
+                    android:layout_weight="1"
                     android:background="#00FFFFFF"
                     android:gravity="center"
                     android:src="@android:drawable/ic_input_add"

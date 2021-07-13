@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Evcil Hayvan Sahiplenme</string>
+    <string name="app_name">PatiSahiplen</string>
     <string name="title_home">Ana Sayfa</string>
     <string name="title_dashboard">Profil</string>
     <string name="title_notifications">İlanlarım</string>

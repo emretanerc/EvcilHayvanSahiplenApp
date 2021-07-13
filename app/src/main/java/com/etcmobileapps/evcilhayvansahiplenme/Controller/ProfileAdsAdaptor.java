@@ -86,15 +86,15 @@ public class ProfileAdsAdaptor extends ArrayAdapter<AdsModel> {
         Integer confirmation = listdata.getConfirmation();
         if (confirmation==1) {
             txtStatus.setText("YAYINDA");
-            txtStatus.setBackgroundResource(R.color.green);
+            txtStatus.setBackgroundResource(R.color.turuncu);
             txtStatus.setTextColor(WHITE);
         } else if (confirmation==0) {
             txtStatus.setText("İNCELENİYOR.");
-            txtStatus.setBackgroundResource(R.color.mor);
+            txtStatus.setBackgroundResource(R.color.turuncu);
             txtStatus.setTextColor(WHITE);
         } else if (confirmation==-1) {
             txtStatus.setBackgroundColor(RED);
-            txtStatus.setTextColor(WHITE);
+            txtStatus.setBackgroundResource(R.color.turuncu);
             txtStatus.setText("YAYINDA DEĞİL.");
 
         }
