@@ -15,14 +15,15 @@
         android:orientation="vertical"
         android:visibility="visible">
 
-        <TextView
+        <ImageView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="Petbul"
             android:textColor="@color/purple_700"
-            android:textSize="45sp" />
+            android:textSize="45sp"
+            app:srcCompat="@drawable/logo" />
     </LinearLayout>
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -58,10 +59,23 @@
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.35"
+                    android:layout_weight="0.80"
                     android:gravity="center"
-                    android:text="Petbul"
+                    android:text="Pati"
+                    android:textAlignment="viewEnd"
                     android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.80"
+                    android:gravity="center"
+                    android:text="Sahiplen"
+                    android:textAlignment="viewStart"
+                    android:textColor="#ffde59"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -69,16 +83,15 @@
                     android:id="@+id/newAddCursor"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
-                    android:layout_gravity="center"
                     android:layout_weight="1"
+
                     android:background="#00FFFFFF"
                     android:gravity="center"
                     android:src="@android:drawable/ic_input_add"
                     android:text="+"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
-                    android:textSize="45sp"
+                    android:textSize="55sp"
                     app:borderWidth="0dp"
                     app:fabSize="auto" />
 
