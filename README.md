@@ -9,6 +9,7 @@ Uygulama Özellikleri
 - Whatsapp Mesaj gönderme ve Direk Arama
 - İlanlarda 2 adet görsel ve ilan detayları bulunmaktadır.
 
+
 Teknik Bilgiler
 -Sunucu tarafında node.js / mysql kullandım.
 -Retrofit, Picasso kütüphaneleri kullandım.
