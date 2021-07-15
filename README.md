@@ -2,6 +2,9 @@
 Evcil Hayvan Sahiplenme ilanları yayınlanan mobil uygulama.
 
 
+![](petsahiplenlogo.png)
+
+
 Uygulama Özellikleri
 - Gmail Sign in 
 - İlanlar için CRUD işlemleri
@@ -17,7 +20,6 @@ Teknik Bilgiler
 
 
 
-![](petsahiplenlogo.png)
 
 ![](previewapp.jpg)
 
