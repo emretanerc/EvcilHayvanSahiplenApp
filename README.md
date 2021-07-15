@@ -17,9 +17,9 @@ Teknik Bilgiler
 
 
 
+![](petsahiplenlogo.png)
 
-
-![](preview.jpg)
+![](previewapp.jpg)
 
 
 
