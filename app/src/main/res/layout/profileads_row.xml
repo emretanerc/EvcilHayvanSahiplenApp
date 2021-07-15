@@ -102,7 +102,7 @@
                     android:layout_weight="1"
                     android:background="@color/mor"
                     android:text="DÜZENLE"
-                    android:textColor="@color/turuncu"
+                    android:textColor="@android:color/white"
                     android:textSize="14sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -113,7 +113,7 @@
                     android:layout_weight="1"
                     android:background="@color/mor"
                     android:text="SİL"
-                    android:textColor="@color/turuncu"
+                    android:textColor="@android:color/white"
                     android:textSize="14sp" />
             </LinearLayout>
 

@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     View menu;
     ImageButton drawerMenuButton;
    Boolean mSlideState=false;
-    TextView newAddButton;
+    ImageButton newAddButton;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
     BottomNavigationView navigation;
@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
             case R.id.nav_tavsan: {
-                replaceFragmentsSearch("tavsan", SearchFragment.class);
+                replaceFragmentsSearch("tavşan", SearchFragment.class);
                 break;
             }
             case R.id.nav_hamster: {
@@ -230,11 +230,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
             case R.id.nav_ordek: {
-                replaceFragmentsSearch("ordek", SearchFragment.class);
+                replaceFragmentsSearch("ördek", SearchFragment.class);
                 break;
             }
             case R.id.nav_surungenler: {
-                replaceFragmentsSearch("surungenler", SearchFragment.class);
+                replaceFragmentsSearch("sürüngen", SearchFragment.class);
                 break;
             }
 
@@ -256,7 +256,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Insert the fragment by replacing any existing fragment
         Bundle args = new Bundle();
         args.putString("searchValue",value);
-        args.putString("city",null);
+        args.putString("city","Hepsi");
         fragment.setArguments(args);
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragmentLayout, fragment)

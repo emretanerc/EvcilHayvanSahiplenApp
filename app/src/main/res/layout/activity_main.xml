@@ -79,15 +79,15 @@
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
-                <TextView
+                <ImageButton
                     android:id="@+id/newAddCursor"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
+                    android:layout_margin="15dp"
                     android:layout_weight="1"
-                    android:background="#00FFFFFF"
+                    android:background="@drawable/plus"
                     android:gravity="center"
-                    android:src="@android:drawable/ic_input_add"
                     android:text="+"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"

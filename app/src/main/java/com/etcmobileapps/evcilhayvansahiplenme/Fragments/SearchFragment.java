@@ -147,7 +147,7 @@ public class SearchFragment extends Fragment {
                     getSearch("ördek");
                     break;
                 case "sürüngenler":
-                    getSearch("sürüngenler");
+                    getSearch("sürüngen");
                     break;
                 case "others":
                     getOthers();
@@ -207,10 +207,11 @@ public class SearchFragment extends Fragment {
                     founds.setAdapter(listViewAdapter[0]);
                 } else {
 
-                    Toast.makeText(getActivity(), "Herhangi bir ilan bulunamadı.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Herhangi bir ilan bulunamadı...", Toast.LENGTH_SHORT).show();
                     replaceFragments(AdsFragment.class);
                 }
 
+                Log.i("Bilgi",response.toString());
             }
 
             @Override
