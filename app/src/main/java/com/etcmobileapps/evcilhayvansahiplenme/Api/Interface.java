@@ -60,6 +60,9 @@ public interface Interface {
     Call<SearchModel> deleteAds(@Path("id") Integer id);
 
 
+    @PUT("ads/id/confirmation/{id}")
+    Call<SearchModel> unConfirmation(@Path("id") Integer id);
+
     @FormUrlEncoded
     @PUT("ads/id/{id}")
     Call<AdsModel> editAds  (@Path("id") String id,

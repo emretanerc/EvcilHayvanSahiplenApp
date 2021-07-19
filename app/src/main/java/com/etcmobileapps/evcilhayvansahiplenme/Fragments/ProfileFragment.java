@@ -93,7 +93,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-              logOut();
+                logOut();
 
             }
         });
@@ -164,15 +164,18 @@ public class ProfileFragment extends Fragment {
 
                 public  void logOut () {
 
-    mGoogleSignInClient.signOut()
-            .addOnCompleteListener(getActivity(), new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
+                    FirebaseAuth mAuth= FirebaseAuth.getInstance();
+                    mAuth.signOut();
 
-                    replaceFragments(RegisterFragment.class);
+                    // Google sign out
+                    mGoogleSignInClient.signOut().addOnCompleteListener(getActivity(),
+                            new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    replaceFragments(RegisterFragment.class);
+                                }
+                            });
 
-                }
-            });
 
 }
 

@@ -115,8 +115,8 @@ public class ProfileAdsAdaptor extends ArrayAdapter<AdsModel> {
                 .into(img);
 
 
-           if (adDetail2.length()>35) {
-          String detail=listdata.getAdDetail().substring(0,20)+"...";
+           if (adDetail2.length()>50) {
+          String detail=listdata.getAdDetail().substring(0,50)+"...";
             adDetail2.setText(detail);
               }
 
@@ -168,7 +168,16 @@ public class ProfileAdsAdaptor extends ArrayAdapter<AdsModel> {
 
                 // Specifying a listener allows you to take an action before dismissing the dialog.
                 // The dialog is automatically dismissed when a dialog button is clicked.
-                .setPositiveButton("Evet", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Yayından Kaldır", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Continue with delete operation
+
+                        unConfirmation(id);
+                    }
+                })
+
+                // A null listener allows the button to dismiss the dialog and take no further action.
+                .setNegativeButton("Sil", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // Continue with delete operation
 
@@ -176,10 +185,13 @@ public class ProfileAdsAdaptor extends ArrayAdapter<AdsModel> {
                     }
                 })
 
-                // A null listener allows the button to dismiss the dialog and take no further action.
-                .setNegativeButton("Hayır", null)
+               .setNeutralButton ("İptal Et", null)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
+
+
+
+
     }
 
     public void deleteAds (Integer id) {
@@ -197,6 +209,35 @@ public class ProfileAdsAdaptor extends ArrayAdapter<AdsModel> {
                 } else {
 
                     Toast.makeText(getContext(), "İlan silinemedi.", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<SearchModel> call, Throwable t) {
+                Log.e("Hata",t.toString());
+                Toast.makeText(getContext(), t.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    public void unConfirmation (Integer id) {
+
+        final Interface[] restInterface = new Interface[1];
+        restInterface[0] = ApiClient.getClient().create(Interface.class);
+        Call<SearchModel> call = restInterface[0].unConfirmation(id);
+        call.enqueue(new Callback<SearchModel>() {
+            @Override
+            public void onResponse(Call<SearchModel> call, Response<SearchModel> response) {
+                if (response.isSuccessful()) {
+
+                    Toast.makeText(getContext(), "İlan başarıyla yayından kaldırıldı..", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    Toast.makeText(getContext(), "İlan kaldırılamadı..", Toast.LENGTH_SHORT).show();
 
                 }
 
