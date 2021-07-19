@@ -1,10 +1,13 @@
 package com.etcmobileapps.evcilhayvansahiplenme;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,38 +15,41 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.etcmobileapps.evcilhayvansahiplenme.Api.ApiClient;
+import com.etcmobileapps.evcilhayvansahiplenme.Api.Interface;
 import com.etcmobileapps.evcilhayvansahiplenme.Fragments.AdsFragment;
 import com.etcmobileapps.evcilhayvansahiplenme.Fragments.InboxFragment;
 import com.etcmobileapps.evcilhayvansahiplenme.Fragments.NewAdd_Fragment;
 import com.etcmobileapps.evcilhayvansahiplenme.Fragments.ProfileFragment;
 import com.etcmobileapps.evcilhayvansahiplenme.Fragments.RegisterFragment;
 import com.etcmobileapps.evcilhayvansahiplenme.Fragments.SearchFragment;
+import com.etcmobileapps.evcilhayvansahiplenme.Model.VersionCheck;
 import com.etcmobileapps.ucretsizevcilhayvansahiplenme.R;
-import com.google.android.material.bottomnavigation.BottomNavigationMenu;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
-import com.squareup.picasso.Picasso;
+import com.onesignal.OneSignal;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
-import org.w3c.dom.Text;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private static final String ONESIGNAL_APP_ID = "aeabceb5-8aad-444a-9bed-f328c3c26f9d";
     FrameLayout fragmentLayout;
     LinearLayout action;
     View menu;
@@ -64,7 +70,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
 
-        handler.sendEmptyMessageDelayed(1, 3000);
+        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
+
+        // OneSignal Initialization
+        OneSignal.initWithContext(this);
+        OneSignal.setAppId(ONESIGNAL_APP_ID);
+
+
+versionControl();
+
 
         fragmentLayout = findViewById(R.id.fragmentLayout);
         drawerMenuButton = findViewById(R.id.drawerMenuButton);
@@ -75,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
          navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        replaceFragments(RegisterFragment.class);
+
 
         setNavigationViewListener();
 
@@ -272,5 +286,91 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+
+
+
+    public void update (String duyuru) {
+        new AlertDialog.Builder(MainActivity.this)
+                .setMessage(" \n " + "YENİLİKLER \n \n" + duyuru + "\n" + "Uygulamayı güncellemeniz gerekmektedir. \n")
+
+                // Specifying a listener allows you to take an action before dismissing the dialog.
+                // The dialog is automatically dismissed when a dialog button is clicked.
+                .setPositiveButton("GÜNCELLE", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Continue with delete operation
+
+
+                        finish();
+                        final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
+                        try {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                        } catch (android.content.ActivityNotFoundException anfe) {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                        }
+
+
+                    }
+                })
+
+                .setNegativeButton("KAPAT", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Continue with delete operation
+
+                        finish();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+
+
+
+
+    }
+
+    public void versionControl() {
+
+        final Interface[] restInterface = new Interface[1];
+        restInterface[0] = ApiClient.getClientVersion().create(Interface.class);
+        Call<List<VersionCheck>> call = restInterface[0].checkVersion();
+        call.enqueue(new Callback<List<VersionCheck>>() {
+            @Override
+            public void onResponse(Call<List<VersionCheck>> call, Response<List<VersionCheck>> response) {
+
+                List<VersionCheck> version = response.body();
+
+
+
+
+
+                Log.i("Bilgi",response.toString());
+
+
+                Integer lastVersion =  version.get(0).getVersion();
+                String  feature =  version.get(0).getFeature();
+                if (lastVersion == 2) {
+
+
+                    replaceFragments(RegisterFragment.class);
+                    handler.sendEmptyMessageDelayed(1, 3000);
+
+                } else {
+
+                    update(feature);
+
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<List<VersionCheck>> call, Throwable t) {
+
+                Log.i("Hata",t.toString());
+            }
+
+
+        });
+
+    }
 
 }

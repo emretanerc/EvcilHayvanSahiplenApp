@@ -1,5 +1,6 @@
 package com.etcmobileapps.evcilhayvansahiplenme.Fragments;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,7 +46,7 @@ public class ProfileFragment extends Fragment {
     CircleImageView profile_image;
     GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN = 007;
-    Button logOutButton;
+    Button logOutButton, mailButton;
     GoogleSignInAccount account;
     private List<UserModel> specList;
     TextView username,userid,usermail;
@@ -81,6 +82,7 @@ public class ProfileFragment extends Fragment {
 
         profile_image = view.findViewById(R.id.profile_image);
         logOutButton = view.findViewById(R.id.logOutButton);
+        mailButton = view.findViewById(R.id.mailBt);
         usermail = view.findViewById(R.id.usermail);
 
         username = view.findViewById(R.id.username);
@@ -98,7 +100,13 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        mailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                composeEmail("PatiSahiplen Uygulaması Hk.");
+            }
+        });
 
 
         return view;
@@ -179,6 +187,14 @@ public class ProfileFragment extends Fragment {
 
 }
 
+    public void composeEmail(String subject) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("message/rfc822");
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"etcmobileapps@gmail.com"});
+        Intent mailer = Intent.createChooser(intent, null);
+        startActivity(mailer);
+    }
 
     public void replaceFragments(Class fragmentClass) {
         Fragment fragment = null;

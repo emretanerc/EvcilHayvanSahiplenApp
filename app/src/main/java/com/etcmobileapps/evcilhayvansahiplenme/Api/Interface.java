@@ -3,6 +3,7 @@ package com.etcmobileapps.evcilhayvansahiplenme.Api;
 import com.etcmobileapps.evcilhayvansahiplenme.Model.AdsModel;
 import com.etcmobileapps.evcilhayvansahiplenme.Model.SearchModel;
 import com.etcmobileapps.evcilhayvansahiplenme.Model.UserModel;
+import com.etcmobileapps.evcilhayvansahiplenme.Model.VersionCheck;
 
 import java.util.List;
 
@@ -62,6 +63,10 @@ public interface Interface {
 
     @PUT("ads/id/confirmation/{id}")
     Call<SearchModel> unConfirmation(@Path("id") Integer id);
+
+    @GET("version")
+    Call<List<VersionCheck>> checkVersion();
+
 
     @FormUrlEncoded
     @PUT("ads/id/{id}")

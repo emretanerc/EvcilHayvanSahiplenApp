@@ -57,9 +57,20 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_margin="35dp"
+        android:layout_margin="15dp"
         android:background="@drawable/bg_border"
         android:text="Çıkış Yap"
+        android:textColor="@color/mor" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/mailBt"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_border"
+        android:text="Sorun Bildir"
         android:textColor="@color/mor" />
 
 
