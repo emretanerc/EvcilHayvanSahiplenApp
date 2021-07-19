@@ -2,6 +2,9 @@
 Evcil Hayvan Sahiplenme ilanları yayınlanan mobil uygulama.
 
 
+![](petsahiplenlogo.png)
+
+
 Uygulama Özellikleri
 - Gmail Sign in 
 - İlanlar için CRUD işlemleri
@@ -11,15 +14,16 @@ Uygulama Özellikleri
 
 
 Teknik Bilgiler
+
 -Sunucu tarafında node.js / mysql kullandım.
+
 -Retrofit, Picasso kütüphaneleri kullandım.
 
 
 
 
 
-
-![](preview.jpg)
+![](previewapp.jpg)
 
 
 
