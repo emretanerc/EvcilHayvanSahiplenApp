@@ -22,10 +22,8 @@ Teknik Bilgiler
 
 
 
-<p align="left">
-<a href="https://twitter.com/emretanerc" target="_blank"><img align="center" src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter" /></a>
-<a href="https://medium.com/@etcmobileapps" target="_blank"><img align="center" src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" alt="Medium" /></a>
-<a href="https://play.google.com/store/apps/developer?id=ETC+Mobile+Apps" target="_blank"><img align="center" src="https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white" alt="Play Store" /></a>
+
+<a href="https://play.google.com/store/apps/details?id=com.etcmobileapps.ucretsizevcilhayvansahiplenme" target="_blank"><img align="center" src="https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white" alt="Play Store" /></a>
 </p>
 
 
