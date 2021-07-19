@@ -11,7 +11,7 @@ public class ApiClient {
     public static Retrofit getClient() {
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://patisahiplen.etcmobileapps.com:3000")
+                .baseUrl(".....")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(new OkHttpClient())
                 .build();
