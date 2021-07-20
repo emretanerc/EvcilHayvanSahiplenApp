@@ -1,4 +1,4 @@
-package com.etcmobileapps.evcilhayvansahiplenme.Fragments;
+package com.etcmobileapps.evcilhayvansahiplenme.fragments;
 
 import android.graphics.Rect;
 import android.net.Uri;
@@ -24,14 +24,14 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.etcmobileapps.evcilhayvansahiplenme.Api.ApiClient;
+import com.etcmobileapps.evcilhayvansahiplenme.api.ApiClient;
 
-import com.etcmobileapps.evcilhayvansahiplenme.Api.Interface;
-import com.etcmobileapps.evcilhayvansahiplenme.Controller.AdsAdaptor;
-import com.etcmobileapps.evcilhayvansahiplenme.Controller.ProfileAdsAdaptor;
+import com.etcmobileapps.evcilhayvansahiplenme.api.Interface;
+import com.etcmobileapps.evcilhayvansahiplenme.controller.AdsAdaptor;
+import com.etcmobileapps.evcilhayvansahiplenme.controller.ProfileAdsAdaptor;
 import com.etcmobileapps.evcilhayvansahiplenme.MainActivity;
-import com.etcmobileapps.evcilhayvansahiplenme.Model.AdsModel;
-import com.etcmobileapps.evcilhayvansahiplenme.Model.UserModel;
+import com.etcmobileapps.evcilhayvansahiplenme.model.AdsModel;
+import com.etcmobileapps.evcilhayvansahiplenme.model.UserModel;
 import com.etcmobileapps.ucretsizevcilhayvansahiplenme.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;

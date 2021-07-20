@@ -1,4 +1,4 @@
-package com.etcmobileapps.evcilhayvansahiplenme.Controller;
+package com.etcmobileapps.evcilhayvansahiplenme.controller;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
-import com.etcmobileapps.evcilhayvansahiplenme.Model.AdsModel;
+import com.etcmobileapps.evcilhayvansahiplenme.model.AdsModel;
 import com.etcmobileapps.ucretsizevcilhayvansahiplenme.R;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;

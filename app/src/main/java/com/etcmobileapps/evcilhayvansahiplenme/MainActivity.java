@@ -18,15 +18,15 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.etcmobileapps.evcilhayvansahiplenme.Api.ApiClient;
-import com.etcmobileapps.evcilhayvansahiplenme.Api.Interface;
-import com.etcmobileapps.evcilhayvansahiplenme.Fragments.AdsFragment;
-import com.etcmobileapps.evcilhayvansahiplenme.Fragments.InboxFragment;
-import com.etcmobileapps.evcilhayvansahiplenme.Fragments.NewAdd_Fragment;
-import com.etcmobileapps.evcilhayvansahiplenme.Fragments.ProfileFragment;
-import com.etcmobileapps.evcilhayvansahiplenme.Fragments.RegisterFragment;
-import com.etcmobileapps.evcilhayvansahiplenme.Fragments.SearchFragment;
-import com.etcmobileapps.evcilhayvansahiplenme.Model.VersionCheck;
+import com.etcmobileapps.evcilhayvansahiplenme.api.ApiClient;
+import com.etcmobileapps.evcilhayvansahiplenme.api.Interface;
+import com.etcmobileapps.evcilhayvansahiplenme.fragments.AdsFragment;
+import com.etcmobileapps.evcilhayvansahiplenme.fragments.InboxFragment;
+import com.etcmobileapps.evcilhayvansahiplenme.fragments.NewAdd_Fragment;
+import com.etcmobileapps.evcilhayvansahiplenme.fragments.ProfileFragment;
+import com.etcmobileapps.evcilhayvansahiplenme.fragments.RegisterFragment;
+import com.etcmobileapps.evcilhayvansahiplenme.fragments.SearchFragment;
+import com.etcmobileapps.evcilhayvansahiplenme.model.VersionCheck;
 import com.etcmobileapps.ucretsizevcilhayvansahiplenme.R;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;

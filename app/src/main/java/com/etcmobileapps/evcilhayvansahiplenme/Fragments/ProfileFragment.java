@@ -1,4 +1,4 @@
-package com.etcmobileapps.evcilhayvansahiplenme.Fragments;
+package com.etcmobileapps.evcilhayvansahiplenme.fragments;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -16,10 +16,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 
-import com.etcmobileapps.evcilhayvansahiplenme.Api.ApiClient;
-import com.etcmobileapps.evcilhayvansahiplenme.Api.Interface;
-import com.etcmobileapps.evcilhayvansahiplenme.Model.AdsModel;
-import com.etcmobileapps.evcilhayvansahiplenme.Model.UserModel;
+import com.etcmobileapps.evcilhayvansahiplenme.api.ApiClient;
+import com.etcmobileapps.evcilhayvansahiplenme.api.Interface;
+import com.etcmobileapps.evcilhayvansahiplenme.model.AdsModel;
+import com.etcmobileapps.evcilhayvansahiplenme.model.UserModel;
 import com.etcmobileapps.ucretsizevcilhayvansahiplenme.R;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;

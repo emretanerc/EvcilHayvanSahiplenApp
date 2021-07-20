@@ -1,15 +1,12 @@
 package com.etcmobileapps.evcilhayvansahiplenme.fragments;
 
 
-
 import android.Manifest;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,12 +14,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,23 +26,19 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.etcmobileapps.evcilhayvansahiplenme.model.AdsModel;
+import com.etcmobileapps.evcilhayvansahiplenme.model.UserModel;
 import com.etcmobileapps.evcilhayvansahiplenme.api.ApiClient;
-
 import com.etcmobileapps.evcilhayvansahiplenme.api.Interface;
-import com.etcmobileapps.evcilhayvansahiplenme.Model.AdsModel;
-import com.etcmobileapps.evcilhayvansahiplenme.Model.UserModel;
 import com.etcmobileapps.ucretsizevcilhayvansahiplenme.R;
 import com.github.chrisbanes.photoview.PhotoView;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 import com.squareup.picasso.Picasso;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;

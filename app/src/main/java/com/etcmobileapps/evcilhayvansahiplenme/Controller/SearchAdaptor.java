@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
-import com.etcmobileapps.evcilhayvansahiplenme.Model.SearchModel;
+import com.etcmobileapps.evcilhayvansahiplenme.model.SearchModel;
 import com.etcmobileapps.ucretsizevcilhayvansahiplenme.R;
 import com.squareup.picasso.Picasso;
 

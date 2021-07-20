@@ -1,4 +1,4 @@
-package com.etcmobileapps.evcilhayvansahiplenme.Model;
+package com.etcmobileapps.evcilhayvansahiplenme.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

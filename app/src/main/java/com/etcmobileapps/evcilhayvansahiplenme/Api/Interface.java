@@ -1,9 +1,9 @@
-package com.etcmobileapps.evcilhayvansahiplenme.Api;
+package com.etcmobileapps.evcilhayvansahiplenme.api;
 
-import com.etcmobileapps.evcilhayvansahiplenme.Model.AdsModel;
-import com.etcmobileapps.evcilhayvansahiplenme.Model.SearchModel;
-import com.etcmobileapps.evcilhayvansahiplenme.Model.UserModel;
-import com.etcmobileapps.evcilhayvansahiplenme.Model.VersionCheck;
+import com.etcmobileapps.evcilhayvansahiplenme.model.AdsModel;
+import com.etcmobileapps.evcilhayvansahiplenme.model.SearchModel;
+import com.etcmobileapps.evcilhayvansahiplenme.model.UserModel;
+import com.etcmobileapps.evcilhayvansahiplenme.model.VersionCheck;
 
 import java.util.List;
 
