@@ -1,4 +1,4 @@
-package com.etcmobileapps.evcilhayvansahiplenme.Api;
+package com.etcmobileapps.evcilhayvansahiplenme.api;
 
 
 import okhttp3.OkHttpClient;
@@ -11,7 +11,7 @@ public class ApiClient {
     public static Retrofit getClient() {
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("..")
+                .baseUrl("http://patisahiplen.etcmobileapps.com:3000")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(new OkHttpClient())
                 .build();
@@ -21,7 +21,7 @@ public class ApiClient {
     public static Retrofit getClientVersion() {
 
         retrofit2 = new Retrofit.Builder()
-                .baseUrl("...")
+                .baseUrl("http://patisahiplen.etcmobileapps.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(new OkHttpClient())
                 .build();

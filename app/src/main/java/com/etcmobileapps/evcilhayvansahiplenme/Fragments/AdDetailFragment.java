@@ -1,4 +1,4 @@
-package com.etcmobileapps.evcilhayvansahiplenme.Fragments;
+package com.etcmobileapps.evcilhayvansahiplenme.fragments;
 
 
 
@@ -31,9 +31,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.etcmobileapps.evcilhayvansahiplenme.Api.ApiClient;
+import com.etcmobileapps.evcilhayvansahiplenme.api.ApiClient;
 
-import com.etcmobileapps.evcilhayvansahiplenme.Api.Interface;
+import com.etcmobileapps.evcilhayvansahiplenme.api.Interface;
 import com.etcmobileapps.evcilhayvansahiplenme.Model.AdsModel;
 import com.etcmobileapps.evcilhayvansahiplenme.Model.UserModel;
 import com.etcmobileapps.ucretsizevcilhayvansahiplenme.R;
@@ -330,9 +330,8 @@ public class AdDetailFragment extends Fragment {
             adCountry.setText(repo.getCountry());
             adName.setText("\n" +repo.getAdName() + "\n");
 
-                LocalDate lt
-                        = LocalDate.now();
-            dateValue.setText(lt.toString());
+
+            dateValue.setText(repo.getDate().toString());
 
             telephone = repo.getAdOwnertelephone();
 

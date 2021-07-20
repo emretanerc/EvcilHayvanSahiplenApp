@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "977582409219-mu27e39gp50eu4ctrc3le9god4aiodot.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.etcmobileapps.ucretsizevcilhayvansahiplenme",
+            "certificate_hash": "acd910b64b66201db4797f903487a78406bbb395"
+          }
+        },
+        {
           "client_id": "977582409219-totrl14h4tkcl9qbh55q55pu72k1tqmk.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

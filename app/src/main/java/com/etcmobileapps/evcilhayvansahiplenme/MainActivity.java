@@ -347,7 +347,7 @@ versionControl();
 
                 Integer lastVersion =  version.get(0).getVersion();
                 String  feature =  version.get(0).getFeature();
-                if (lastVersion == 2) {
+                if (lastVersion == 3) {
 
 
                     replaceFragments(RegisterFragment.class);
