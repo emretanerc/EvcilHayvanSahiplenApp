@@ -2,7 +2,6 @@
 Evcil Hayvan Sahiplenme ilanları yayınlanan mobil uygulama.
 
 
-<img src="https://github.com/emretanerc/gunlukburcyorumlari2021/blob/master/unnamed.jpg?raw=true" width="250" height="500">
 
 
 Uygulama Özellikleri
